@@ -1,5 +1,6 @@
 {
   "entry": "example/",
   "cssModules": true,
-  "dist": "dist-example"
+  "dist": "dist-example",
+  "title": "Vue Windows"
 }
