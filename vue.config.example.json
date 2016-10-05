@@ -1,0 +1,5 @@
+{
+  "entry": "example/",
+  "cssModules": true,
+  "dist": "dist-example"
+}

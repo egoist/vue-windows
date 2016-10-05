@@ -1,0 +1,42 @@
+{
+  "name": "vue-windows",
+  "version": "0.0.0",
+  "description": "Vue component for making neat native-like window.",
+  "license": "MIT",
+  "repository": "egoist/vue-windows",
+  "author": {
+    "name": "EGOIST",
+    "email": "0x142857@gmail.com",
+    "url": "github.com/egoist"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "eslint src/*.js",
+    "dev": "vbuild --config vue.config.example.json -d",
+    "build": "npm run build:cjs && npm run build:umd",
+    "build:umd": "vbuild --config vue.config.umd.json",
+    "build:compress": "vbuild --config vue.config.umd.json --dist dist/compressed --compress --devtool source-map",
+    "build:example": "vbuild --config vue.config.example.json",
+    "gh": "npm run build:example && gh-pages -d dist-example"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-windows.js",
+  "keywords": [
+    "vue",
+    "window",
+    "mock"
+  ],
+  "devDependencies": {
+    "eslint": "latest",
+    "eslint-config-egoist": "latest",
+    "gh-pages": "^0.11.0",
+    "vue": "^2.0.1"
+  },
+  "eslintConfig": {
+    "extends": "egoist/esnext"
+  }
+}
