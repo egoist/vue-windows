@@ -6,6 +6,9 @@
       </editor-window>
       <browser-window url="https://github.com/egoist/vue-windows" :width="width" :height="height">
         <div class="content">
+          <h2>
+            Such Window, Very Lovely!
+          </h2>
           <a class="star" href="https://github.com/egoist/vue-windows">Start me on GitHub!</a>
         </div>
       </browser-window>
@@ -84,6 +87,11 @@ new Vue({
     justify-content: center;
     align-items: center;
     height: 100%;
+    flex-direction: column;
+    h2 {
+      font-weight: 300;
+      margin-top: -10px;
+    }
   }
 
   a.star {
@@ -92,6 +100,7 @@ new Vue({
     border: 1px solid #4fc08d;
     border-radius: 33px;
     padding: 10px 20px;
+    margin-top: 10px;
   }
 </style>
 
