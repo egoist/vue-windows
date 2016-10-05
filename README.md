@@ -1,6 +1,6 @@
-# vue-windows (2kb)
+# vue-windows [![NPM version](https://img.shields.io/npm/v/vue-windows.svg?style=flat-square)](https://npmjs.com/package/vue-windows) [![NPM downloads](https://img.shields.io/npm/dm/vue-windows.svg?style=flat-square)](https://npmjs.com/package/vue-windows) [![Build Status](https://img.shields.io/circleci/project/egoist/vue-windows/master.svg?style=flat-square)](https://circleci.com/gh/egoist/vue-windows)
 
-[![NPM version](https://img.shields.io/npm/v/vue-windows.svg?style=flat-square)](https://npmjs.com/package/vue-windows) [![NPM downloads](https://img.shields.io/npm/dm/vue-windows.svg?style=flat-square)](https://npmjs.com/package/vue-windows) [![Build Status](https://img.shields.io/circleci/project/egoist/vue-windows/master.svg?style=flat-square)](https://circleci.com/gh/egoist/vue-windows)
+It's inspired by the [socket.io](http://socket.io/) homepage, weighing only 2kb.
 
 ## Install
 
