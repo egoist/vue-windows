@@ -62,7 +62,7 @@ Default: `500`
 
 Component: `All`<br>
 Type: `number`<br>
-Default: `min-height: 340px`
+Default: `340`
 
 ## Contributing
 
