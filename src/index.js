@@ -2,6 +2,7 @@ import styles from './style.css'
 
 const EditorWindow = {
   functional: true,
+  name: 'editor-window',
   props: {
     title: {
       required: true,
@@ -33,7 +34,7 @@ const EditorWindow = {
             <span class={[styles.bullet, styles['bullet-yellow']]}></span>
             <span class={[styles.bullet, styles['bullet-green']]}></span>
           </div>
-          <span class={styles.title}>{title}</span>
+          <span class={styles.title} domProps-innerHTML={title}></span>
         </div>
         <div class={styles.body}>
           {children}
@@ -45,6 +46,7 @@ const EditorWindow = {
 
 const BrowserWindow = {
   functional: true,
+  name: 'browser-window',
   props: {
     url: {
       required: true,
@@ -54,8 +56,12 @@ const BrowserWindow = {
     width: Number
   },
   render(h, ctx) {
-    const {url, height, width} = ctx.props
+    let {url, height, width} = ctx.props
     const children = ctx.children
+
+    if (url.substr(0, 8) === 'https://') {
+      url = `<span style="color: rgba(57,126,73,1)">https</span>${url.substr(5)}`
+    }
 
     return (
       <EditorWindow title={url} browser={true} height={height} width={width}>

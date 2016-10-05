@@ -33,6 +33,7 @@
   hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'))
 
   export default {
+    name: 'app',
     data() {
       return {
         width: 500,
