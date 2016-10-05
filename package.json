@@ -38,5 +38,8 @@
   },
   "eslintConfig": {
     "extends": "egoist/esnext"
+  },
+  "dependencies": {
+    "highlight.js": "^9.7.0"
   }
 }
