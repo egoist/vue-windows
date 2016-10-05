@@ -15,7 +15,7 @@
   "scripts": {
     "test": "eslint src/*.js",
     "dev": "vbuild --config vue.config.example.json -d",
-    "build": "npm run build:cjs && npm run build:umd",
+    "build": "npm run build:umd && npm run build:compress",
     "build:umd": "vbuild --config vue.config.umd.json",
     "build:compress": "vbuild --config vue.config.umd.json --dist dist/compressed --compress --devtool source-map",
     "build:example": "vbuild --config vue.config.example.json",
