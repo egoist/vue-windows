@@ -72,6 +72,21 @@ Default: `min-height: 340px`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
+## Development
+
+```bash
+# build umd and example with vbuild
+$ npm install -g vbuild
+
+# run example
+$ npm run dev
+# build example
+$ npm run build:example
+
+# build umd, compress
+$ npm run build
+```
+
 ## License
 
 [MIT](https://egoist.mit-license.org/) © [EGOIST](https://github.com/egoist)
