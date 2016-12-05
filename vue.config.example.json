@@ -1,7 +1,0 @@
-{
-  "entry": "example/",
-  "cssModules": true,
-  "dist": "dist-example",
-  "title": "Vue Windows",
-  "template": "example/index.html"
-}

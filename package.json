@@ -16,9 +16,9 @@
     "test": "eslint src/*.js",
     "dev": "vbuild --config vue.config.example.json -d",
     "build": "npm run build:umd && npm run build:compress",
-    "build:umd": "vbuild --config vue.config.umd.json",
-    "build:compress": "vbuild --config vue.config.umd.json --dist dist/compressed --compress --devtool source-map",
-    "build:example": "vbuild --config vue.config.example.json",
+    "build:umd": "vbuild --config vue.config.umd.js",
+    "build:compress": "vbuild --config vue.config.umd.js --dist dist/compressed --compress --devtool source-map",
+    "build:example": "vbuild --config vue.config.example.js",
     "gh": "npm run build:example && gh-pages -d dist-example"
   },
   "files": [
@@ -34,12 +34,11 @@
     "eslint": "latest",
     "eslint-config-egoist": "latest",
     "gh-pages": "^0.11.0",
+    "highlight.js": "^9.8.0",
     "vue": "^2.0.1"
   },
   "eslintConfig": {
     "extends": "egoist/esnext"
   },
-  "dependencies": {
-    "highlight.js": "^9.7.0"
-  }
+  "dependencies": {}
 }

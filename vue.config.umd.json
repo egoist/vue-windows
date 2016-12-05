@@ -1,9 +1,0 @@
-{
-  "entry": "src/",
-  "filename": "vue-windows",
-  "umd": "VueWindows",
-  "vendor": false,
-  "cssModules": true,
-  "compress": false,
-  "devtool": false
-}
