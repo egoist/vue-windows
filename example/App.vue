@@ -9,7 +9,7 @@
           <h2>
             Such Window, Very Lovely!
           </h2>
-          <a class="star" href="https://github.com/egoist/vue-windows">Start me on GitHub!</a>
+          <a class="star" href="https://github.com/egoist/vue-windows">Star me on GitHub!</a>
         </div>
       </browser-window>
     </div>
