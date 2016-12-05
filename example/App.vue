@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1>Standard Theme</h1>
     <div class="example">
       <editor-window title="How To" :width="width" :height="height">
         <pre><code v-html="code"></code></pre>
@@ -13,6 +14,22 @@
         </div>
       </browser-window>
     </div>
+
+    <h1>Dark Theme</h1>
+    <div class="example example-dark">
+      <editor-window title="How To" :width="width" :height="height" theme="dark">
+        <pre><code v-html="code"></code></pre>
+      </editor-window>
+      <browser-window url="https://github.com/egoist/vue-windows" :width="width" :height="height" theme="dark">
+        <div class="content">
+          <h2>
+            Such Window, Very Lovely!
+          </h2>
+          <a class="star" href="https://github.com/egoist/vue-windows">Start me on GitHub!</a>
+        </div>
+      </browser-window>
+    </div>
+
     <div class="control">
       <div class="range">
         Width: <input type="range" min="460" max="600" v-model.number="width">
@@ -36,8 +53,8 @@
     name: 'app',
     data() {
       return {
-        width: 500,
-        height: 340,
+        width: 460,
+        height: 270,
         code: hljs.highlight('javascript', `import {EditorWindow} from 'vue-windows'
 
 new Vue({
@@ -67,6 +84,12 @@ new Vue({
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
   }
 
+  h1 {
+    text-align: center;
+    font-weight: 100;
+    margin-top: 28px;
+  }
+
   .control {
     display: flex;
     justify-content: center;
@@ -78,9 +101,12 @@ new Vue({
   .example {
     display: flex;
     flex-wrap: nowrap;
-    height: 500px;
     justify-content: center;
     align-items: center;
+  }
+
+  .example-dark {
+    color: #fff;
   }
 
   .content {
@@ -105,4 +131,4 @@ new Vue({
   }
 </style>
 
-<style src="highlight.js/styles/github"></style>
+<style src="highlight.js/styles/androidstudio"></style>

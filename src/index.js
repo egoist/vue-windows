@@ -10,14 +10,16 @@ const EditorWindow = {
     },
     browser: Boolean,
     height: Number,
-    width: Number
+    width: Number,
+    theme: String
   },
   render(h, ctx) {
     const children = ctx.children
-    const {browser, title, height, width} = ctx.props
+    const {browser, title, height, width, theme} = ctx.props
 
     const className = [
       styles.window,
+      theme && styles[theme],
       browser && styles.browser
     ]
 
@@ -53,10 +55,11 @@ const BrowserWindow = {
       type: String
     },
     height: Number,
-    width: Number
+    width: Number,
+    theme: String
   },
   render(h, ctx) {
-    let {url, height, width} = ctx.props
+    let {url, height, width, theme} = ctx.props
     const children = ctx.children
 
     if (url.substr(0, 8) === 'https://') {
@@ -64,7 +67,7 @@ const BrowserWindow = {
     }
 
     return (
-      <EditorWindow title={url} browser={true} height={height} width={width}>
+      <EditorWindow title={url} browser={true} height={height} width={width} theme={theme}>
         {children}
       </EditorWindow>
     )

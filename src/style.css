@@ -12,7 +12,7 @@
   z-index: 1;
   &.browser {
     .header {
-      background: #E8E8E8;
+      background: #e8e8e8;
       .title {
         background: #fff;
         display: inline-block;
@@ -22,6 +22,15 @@
         line-height: 28px;
         margin-left: 10px;
         vertical-align: middle;
+      }
+    }
+  }
+  &.dark {
+    border-color: #1b1d1e;
+    background-color: #1b1d1e;
+    &.browser {
+      .header {
+        background: rgba(255, 255, 255, .1);
       }
     }
   }
