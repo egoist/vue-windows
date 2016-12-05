@@ -10,6 +10,7 @@
   display: inline-block;
   background-color: white;
   z-index: 1;
+  overflow: hidden;
   &.browser {
     .header {
       background: #E8E8E8;
