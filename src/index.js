@@ -1,4 +1,5 @@
 import styles from './style.module.css'
+import Header from './Header/index'
 
 const sharedProps = {
   browser: Boolean,
@@ -33,7 +34,6 @@ const EditorWindow = {
     const className = [
       styles.window,
       theme && styles[theme],
-      browser && styles.browser,
       shadow && styles.shadow
     ]
 
@@ -44,14 +44,7 @@ const EditorWindow = {
 
     return (
       <div class={className} style={style}>
-        <div class={styles.header}>
-          <div class={styles.bullets}>
-            <span class={[styles.bullet, styles['bullet-red']]}></span>
-            <span class={[styles.bullet, styles['bullet-yellow']]}></span>
-            <span class={[styles.bullet, styles['bullet-green']]}></span>
-          </div>
-          <span class={styles.title} domProps-innerHTML={title}></span>
-        </div>
+        <Header title={title} isURL={browser} theme={theme} />
         <div class={styles.body}>
           {children}
         </div>
