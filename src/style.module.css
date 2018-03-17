@@ -1,0 +1,116 @@
+:root {
+  --red: #f85955;
+  --dark-red: #d74246;
+  --yellow: #fbbe3f;
+  --dark-yellow: #d7a32d;
+  --green: #45cc4b;
+  --dark-green: #40ad36;
+  --black: #151515;
+}
+
+.window {
+  width: 500px;
+  height: 340px;
+  border-radius: 4px;
+  text-align: left;
+  vertical-align: top;
+  margin: 0 20px;
+  display: inline-block;
+  background-color: white;
+  z-index: 1;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  &.browser {
+    & .header {
+      background: #e8e8e8;
+      & .title {
+        background: #fff;
+        display: inline-block;
+        width: 320px;
+        border-radius: 4px;
+        height: 26px;
+        line-height: 26px;
+        margin-left: 10px;
+        vertical-align: middle;
+      }
+    }
+  }
+  & .header {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    & .title {
+      display: inline-block;
+      width: 362px;
+      text-align: center;
+      font-size: 12px;
+      color: #766F79;
+    }
+  }
+  & .body {
+    padding: 10px 12px;
+    position: relative;
+    height: calc(100% - 40px);
+    overflow: auto;
+  }
+  & .bullets {
+    font-size: 0;
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.shadow {
+  box-shadow: rgba(0, 0, 0, 0.55) 0px 20px 68px;
+}
+
+.bullet {
+  height: 12px;
+  width: 12px;
+  display: inline-block;
+  background: #ccc;
+  border-radius: 100%;
+  vertical-align: middle;
+  margin-right: 5px;
+  border: 1px solid;
+}
+
+.bullet-red {
+  background: var(--red);
+  border-color: var(--dark-red);
+}
+
+.bullet-yellow {
+  background: var(--yellow);
+  border-color: var(--dark-yellow);
+}
+
+.bullet-green {
+  background: var(--green);
+  border-color: var(--dark-green);
+}
+
+.dark {
+  border-color: #1b1d1e;
+  background-color: #1b1d1e;
+  &.browser {
+    & .header {
+      background: rgba(255, 255, 255, .1);
+      & .title {
+        background-color: rgba(156, 156, 156, 0.21);
+      }
+    }
+  }
+  & .header {
+    & .title {
+      color: white;
+    }
+  }
+  & .bullet {
+    border-color: transparent;
+  }
+}

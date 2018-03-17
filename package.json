@@ -7,19 +7,14 @@
   "author": {
     "name": "EGOIST",
     "email": "0x142857@gmail.com",
-    "url": "github.com/egoist"
-  },
-  "engines": {
-    "node": ">=4"
+    "url": "https://github.com/egoist"
   },
   "scripts": {
-    "test": "eslint src/*.js",
-    "dev": "vbuild --config vue.config.example.json -d",
-    "build": "npm run build:umd && npm run build:compress",
-    "build:umd": "vbuild --config vue.config.umd.js",
-    "build:compress": "vbuild --config vue.config.umd.js --dist dist/compressed --compress --devtool source-map",
-    "build:example": "vbuild --config vue.config.example.js",
-    "gh": "npm run build:example && gh-pages -d dist-example"
+    "test": "echo fine",
+    "example": "poi",
+    "build": "bili",
+    "build:example": "poi build",
+    "gh": "npm run build:example && gh-pages -d example/dist"
   },
   "files": [
     "dist"
@@ -31,14 +26,23 @@
     "mock"
   ],
   "devDependencies": {
-    "eslint": "latest",
-    "eslint-config-egoist": "latest",
     "gh-pages": "^0.11.0",
     "highlight.js": "^9.8.0",
-    "vue": "^2.0.1"
+    "poi": "^10.0.0-beta.5",
+    "postcss-cssnext": "^3.1.0"
   },
-  "eslintConfig": {
-    "extends": "egoist/esnext"
+  "poi": {
+    "entry": "example/index.js",
+    "dist": "example/dist"
   },
-  "dependencies": {}
+  "babel": {
+    "presets": [
+      [
+        "poi",
+        {
+          "jsx": "vue"
+        }
+      ]
+    ]
+  }
 }

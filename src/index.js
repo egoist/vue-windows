@@ -1,4 +1,20 @@
-import styles from './style.css'
+import styles from './style.module.css'
+
+const sharedProps = {
+  browser: Boolean,
+  height: Number,
+  width: Number,
+  theme: {
+    type: String,
+    validator(v) {
+      return ['default', 'dark'].indexOf(v) > -1
+    }
+  },
+  shadow: {
+    type: Boolean,
+    default: false
+  }
+}
 
 const EditorWindow = {
   functional: true,
@@ -8,19 +24,17 @@ const EditorWindow = {
       required: true,
       type: String
     },
-    browser: Boolean,
-    height: Number,
-    width: Number,
-    theme: String
+    ...sharedProps
   },
   render(h, ctx) {
     const children = ctx.children
-    const {browser, title, height, width, theme} = ctx.props
+    const {browser, title, height, width, theme, shadow} = ctx.props
 
     const className = [
       styles.window,
       theme && styles[theme],
-      browser && styles.browser
+      browser && styles.browser,
+      shadow && styles.shadow
     ]
 
     const style = {
@@ -54,12 +68,10 @@ const BrowserWindow = {
       required: true,
       type: String
     },
-    height: Number,
-    width: Number,
-    theme: String
+    ...sharedProps
   },
   render(h, ctx) {
-    let {url, height, width, theme} = ctx.props
+    let {url, height, width, theme, shadow} = ctx.props
     const children = ctx.children
 
     if (url.substr(0, 8) === 'https://') {
@@ -67,7 +79,13 @@ const BrowserWindow = {
     }
 
     return (
-      <EditorWindow title={url} browser={true} height={height} width={width} theme={theme}>
+      <EditorWindow
+        title={url}
+        browser={true}
+        height={height}
+        width={width}
+        theme={theme}
+        shadow={shadow}>
         {children}
       </EditorWindow>
     )
