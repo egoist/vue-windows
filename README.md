@@ -90,16 +90,8 @@ Default: `340`
 ## Development
 
 ```bash
-# build umd and example with vbuild
-$ npm install -g vbuild
-
-# run example
-$ npm run dev
-# build example
-$ npm run build:example
-
-# build umd, compress
-$ npm run build
+yarn
+yarn example
 ```
 
 ## License
