@@ -1,3 +1,4 @@
+import assign from 'nano-assign'
 import styles from './style.module.css'
 import Header from './Header/index'
 
@@ -20,13 +21,12 @@ const sharedProps = {
 const EditorWindow = {
   functional: true,
   name: 'editor-window',
-  props: {
+  props: assign({
     title: {
       required: true,
       type: String
-    },
-    ...sharedProps
-  },
+    }
+  }, sharedProps),
   render(h, ctx) {
     const children = ctx.children
     const {browser, title, height, width, theme, shadow} = ctx.props
@@ -56,13 +56,12 @@ const EditorWindow = {
 const BrowserWindow = {
   functional: true,
   name: 'browser-window',
-  props: {
+  props: assign({
     url: {
       required: true,
       type: String
-    },
-    ...sharedProps
-  },
+    }
+  }, sharedProps),
   render(h, ctx) {
     let {url, height, width, theme, shadow} = ctx.props
     const children = ctx.children

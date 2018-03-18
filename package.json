@@ -12,20 +12,25 @@
   "scripts": {
     "test": "echo fine",
     "example": "poi",
-    "build": "bili",
+    "build": "bili --format cjs,umd,es --no-babel.babelrc",
     "build:example": "poi build",
     "gh": "npm run build:example && gh-pages -d example/dist"
   },
   "files": [
     "dist"
   ],
-  "main": "./dist/vue-windows.js",
+  "main": "./dist/vue-windows.cjs,js",
+  "module": "./dist/vue-windows.es,js",
+  "cdn": "./dist/vue-windows.js",
+  "jsdelivr": "./dist/vue-windows.js",
+  "unpkg": "./dist/vue-windows.js",
   "keywords": [
     "vue",
     "window",
     "mock"
   ],
   "devDependencies": {
+    "bili": "^3.0.10",
     "gh-pages": "^0.11.0",
     "highlight.js": "^9.8.0",
     "poi": "^10.0.0-beta.5",
@@ -33,16 +38,12 @@
   },
   "poi": {
     "entry": "example/index.js",
-    "dist": "example/dist"
+    "dist": "example/dist",
+    "babel": {
+      "jsx": "vue"
+    }
   },
-  "babel": {
-    "presets": [
-      [
-        "poi",
-        {
-          "jsx": "vue"
-        }
-      ]
-    ]
+  "dependencies": {
+    "nano-assign": "^1.0.0"
   }
 }
