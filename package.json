@@ -12,7 +12,7 @@
   "scripts": {
     "test": "echo fine",
     "example": "poi",
-    "build": "bili --format cjs,umd,es --no-babel.babelrc",
+    "build": "bili --format cjs,umd,es --no-babel.babelrc --jsx vue",
     "build:example": "poi build",
     "gh": "npm run build:example && gh-pages -d example/dist"
   },
