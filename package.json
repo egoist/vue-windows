@@ -38,7 +38,7 @@
   },
   "poi": {
     "entry": "example/index.js",
-    "dist": "example/dist",
+    "outDir": "example/dist",
     "babel": {
       "jsx": "vue"
     }
