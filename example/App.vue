@@ -103,6 +103,10 @@ h1 {
   margin-top: 28px;
 }
 
+h2 {
+  margin-top: 0;
+}
+
 .control {
   display: flex;
   justify-content: center;
@@ -117,10 +121,6 @@ h1 {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-}
-
-.example-dark {
-  color: #fff;
 }
 
 .content {

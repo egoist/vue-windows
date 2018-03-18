@@ -14,12 +14,13 @@
   z-index: 1;
   overflow: hidden;
   border: 1px solid #ccc;
-  & .body {
-    padding: 10px 12px;
-    position: relative;
-    height: calc(100% - 40px);
-    overflow: auto;
-  }
+}
+
+.body {
+  padding: 10px 12px;
+  position: relative;
+  height: calc(100% - 40px);
+  overflow: auto;
 }
 
 .shadow {
@@ -27,6 +28,7 @@
 }
 
 .dark {
-  border-color: #1b1d1e;
-  background-color: #1b1d1e;
+  color: white;
+  border-color: var(--black);
+  background-color: var(--black);
 }
