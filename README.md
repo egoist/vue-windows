@@ -52,6 +52,14 @@ Component: `BrowserWindow`<br>
 Type: `string`<br>
 Required: `true`
 
+#### shadow
+
+Component: `All`<br>
+Type: `boolean`<br>
+Default: `false`
+
+Whether to show window shadow.
+
 #### width
 
 Component: `All`<br>
