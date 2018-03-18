@@ -60,6 +60,13 @@ Default: `false`
 
 Whether to show window shadow.
 
+#### theme
+
+Component: `All`<br>
+Type: `string`<br>
+Default: `default`<br>
+Available: `default` `dark`
+
 #### width
 
 Component: `All`<br>
