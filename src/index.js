@@ -1,26 +1,40 @@
-import styles from './style.css'
+import assign from 'nano-assign'
+import styles from './style.module.css'
+import Header from './Header/index'
+
+const sharedProps = {
+  browser: Boolean,
+  height: Number,
+  width: Number,
+  theme: {
+    type: String,
+    validator(v) {
+      return ['default', 'dark'].indexOf(v) > -1
+    }
+  },
+  shadow: {
+    type: Boolean,
+    default: false
+  }
+}
 
 const EditorWindow = {
   functional: true,
   name: 'editor-window',
-  props: {
+  props: assign({
     title: {
       required: true,
       type: String
-    },
-    browser: Boolean,
-    height: Number,
-    width: Number,
-    theme: String
-  },
+    }
+  }, sharedProps),
   render(h, ctx) {
     const children = ctx.children
-    const {browser, title, height, width, theme} = ctx.props
+    const {browser, title, height, width, theme, shadow} = ctx.props
 
     const className = [
       styles.window,
       theme && styles[theme],
-      browser && styles.browser
+      shadow && styles.shadow
     ]
 
     const style = {
@@ -30,14 +44,7 @@ const EditorWindow = {
 
     return (
       <div class={className} style={style}>
-        <div class={styles.header}>
-          <div class={styles.bullets}>
-            <span class={[styles.bullet, styles['bullet-red']]}></span>
-            <span class={[styles.bullet, styles['bullet-yellow']]}></span>
-            <span class={[styles.bullet, styles['bullet-green']]}></span>
-          </div>
-          <span class={styles.title} domProps-innerHTML={title}></span>
-        </div>
+        <Header title={title} isURL={browser} theme={theme} />
         <div class={styles.body}>
           {children}
         </div>
@@ -49,17 +56,14 @@ const EditorWindow = {
 const BrowserWindow = {
   functional: true,
   name: 'browser-window',
-  props: {
+  props: assign({
     url: {
       required: true,
       type: String
-    },
-    height: Number,
-    width: Number,
-    theme: String
-  },
+    }
+  }, sharedProps),
   render(h, ctx) {
-    let {url, height, width, theme} = ctx.props
+    let {url, height, width, theme, shadow} = ctx.props
     const children = ctx.children
 
     if (url.substr(0, 8) === 'https://') {
@@ -67,7 +71,13 @@ const BrowserWindow = {
     }
 
     return (
-      <EditorWindow title={url} browser={true} height={height} width={width} theme={theme}>
+      <EditorWindow
+        title={url}
+        browser={true}
+        height={height}
+        width={width}
+        theme={theme}
+        shadow={shadow}>
         {children}
       </EditorWindow>
     )
