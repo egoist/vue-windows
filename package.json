@@ -1,6 +1,6 @@
 {
   "name": "vue-windows",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Vue component for making neat native-like window.",
   "license": "MIT",
   "repository": "egoist/vue-windows",
