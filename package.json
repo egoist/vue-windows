@@ -11,9 +11,10 @@
   },
   "scripts": {
     "test": "echo fine",
-    "example": "poi",
+    "example": "poi --serve",
     "build": "bili --format cjs,umd,es --no-babel.babelrc --jsx vue",
-    "build:example": "poi build",
+    "build:example": "poi --prod",
+    "prepublishOnly": "npm run build",
     "gh": "npm run build:example && gh-pages -d example/dist"
   },
   "files": [
@@ -33,12 +34,16 @@
     "bili": "^3.0.10",
     "gh-pages": "^0.11.0",
     "highlight.js": "^9.8.0",
-    "poi": "^10.0.0-beta.6",
-    "postcss-cssnext": "^3.1.0"
+    "poi": "^12.0.0",
+    "postcss-cssnext": "^3.1.0",
+    "vue": "^2.5.18",
+    "vue-template-compiler": "^2.5.18"
   },
   "poi": {
     "entry": "example/index.js",
-    "outDir": "example/dist",
+    "output": {
+      "dir": "example/dist"
+    },
     "babel": {
       "jsx": "vue"
     }
