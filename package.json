@@ -19,8 +19,8 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/vue-windows.cjs,js",
-  "module": "./dist/vue-windows.es,js",
+  "main": "./dist/vue-windows.cjs.js",
+  "module": "./dist/vue-windows.es.js",
   "cdn": "./dist/vue-windows.js",
   "jsdelivr": "./dist/vue-windows.js",
   "unpkg": "./dist/vue-windows.js",
