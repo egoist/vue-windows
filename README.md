@@ -70,14 +70,18 @@ Available: `default` `dark`
 #### width
 
 Component: `All`<br>
-Type: `number`<br>
+Type: `number`|`string`<br>
 Default: `500`
+
+Number values are resolved into lengths in `px` while string values are used directly.
 
 #### height
 
 Component: `All`<br>
-Type: `number`<br>
+Type: `number`|`string`<br>
 Default: `340`
+
+Number values are resolved into lengths in `px` while string values are used directly.
 
 ## Contributing
 
