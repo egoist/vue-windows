@@ -29,7 +29,7 @@
         </label>
       </div>
       <div class="range">
-        Width: <input type="range" min="460" max="600" v-model.number="width">
+        Width: <input type="range" min="460" max="600" v-model.number="width" :disabled="stringWidth">
         <span v-show="width">{{ width }} px</span>
       </div>
       <div class="range">
@@ -94,7 +94,7 @@ new Vue({
 // https://github.com/egoist/vue-windows#usage
 `).value,
         stringWidth: false,
-        widthString: '30%'
+        widthString: 'calc(50vw - 120px)'
       }
     },
     computed: {
