@@ -11,11 +11,25 @@
         </select>
       </div>
       <div class="form-control">
-        <label for="">Shadow:</label>
-        <input type="checkbox" v-model="shadow">
+        <label>
+          Shadow:
+          <input type="checkbox" v-model="shadow">
+        </label>
+      </div>
+      <div class="form-control">
+        <label>
+          Use string width:
+          <input type="checkbox" v-model="stringWidth">
+        </label>
+      </div>
+      <div class="form-control">
+        <label>
+          Width:
+          <input type="text" v-model="widthString" :disabled="!stringWidth">
+        </label>
       </div>
       <div class="range">
-        Width: <input type="range" min="460" max="600" v-model.number="width">
+        Width: <input type="range" min="460" max="600" v-model.number="width" :disabled="stringWidth">
         <span v-show="width">{{ width }} px</span>
       </div>
       <div class="range">
@@ -28,7 +42,7 @@
 
       <editor-window
         title="How To"
-        :width="width"
+        :width="realWidth"
         :height="height"
         :theme="theme"
         :shadow="shadow">
@@ -37,7 +51,7 @@
 
       <browser-window
         url="https://github.com/egoist/vue-windows"
-        :width="width"
+        :width="realWidth"
         :height="height"
         :theme="theme"
         :shadow="shadow">
@@ -78,7 +92,14 @@ new Vue({
 
 // set how to use in single file component
 // https://github.com/egoist/vue-windows#usage
-`).value
+`).value,
+        stringWidth: false,
+        widthString: 'calc(50vw - 120px)'
+      }
+    },
+    computed: {
+      realWidth() {
+        return this.stringWidth ? this.widthString : this.width
       }
     },
     components: {

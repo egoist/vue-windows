@@ -9,37 +9,39 @@
 
 .header {
   height: 40px;
+  padding-right: 75px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  position: relative;
 }
 
 .title {
-  display: inline-block;
-  width: 362px;
+  flex: 1 1 320px;
   text-align: center;
   font-size: 12px;
   color: #766F79;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .bullets {
-  font-size: 0;
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
+  margin-left: 12px;
+  display: flex;
+  flex: 0 0;
+  align-items: center;
 }
 
 .bullet {
   height: 12px;
   width: 12px;
-  display: inline-block;
+  display: block;
   background: #ccc;
   border-radius: 100%;
-  vertical-align: middle;
-  margin-right: 5px;
   border: 1px solid;
+}
+
+.bullet + .bullet {
+  margin-left: 5px;
 }
 
 .bullet-red {
@@ -61,13 +63,12 @@
   background: #e8e8e8;
   & .title {
     background: #fff;
-    display: inline-block;
-    width: 320px;
+    flex: 1 1 320px;
     border-radius: 4px;
-    height: 26px;
     line-height: 26px;
-    margin-left: 10px;
-    vertical-align: middle;
+    margin-left: 17px;
+    padding: 0 12px;
+    text-align: left;
   }
 }
 

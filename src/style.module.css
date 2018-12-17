@@ -1,5 +1,7 @@
 :root {
   --black: #151515;
+  --green: #45cc4b;
+  --dark-green: #40ad36;
 }
 
 .window {
@@ -31,4 +33,13 @@
   color: white;
   border-color: var(--black);
   background-color: var(--black);
+}
+
+.safe {
+  color: var(--dark-green);
+}
+
+.safe.dark {
+  color: var(--green);
+  background-color: transparent;
 }

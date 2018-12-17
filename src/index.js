@@ -4,8 +4,8 @@ import Header from './Header/index'
 
 const sharedProps = {
   browser: Boolean,
-  height: Number,
-  width: Number,
+  height: [Number, String],
+  width: [Number, String],
   theme: {
     type: String,
     validator(v) {
@@ -38,8 +38,8 @@ const EditorWindow = {
     ]
 
     const style = {
-      height: Boolean(height) && `${height}px`,
-      width: Boolean(width) && `${width}px`
+      height: Boolean(height) && (typeof height === 'number' ? `${height}px` : height),
+      width: Boolean(width) && (typeof width === 'number' ? `${width}px` : width)
     }
 
     return (
@@ -67,7 +67,7 @@ const BrowserWindow = {
     const children = ctx.children
 
     if (url.substr(0, 8) === 'https://') {
-      url = `<span style="color: rgba(57,126,73,1)">https</span>${url.substr(5)}`
+      url = `<span class="${[styles.safe, theme && styles[theme]].join(' ')}">https</span>${url.substr(5)}`
     }
 
     return (
