@@ -1,6 +1,6 @@
 # vue-windows [![NPM version](https://img.shields.io/npm/v/vue-windows.svg?style=flat-square)](https://npmjs.com/package/vue-windows) [![NPM downloads](https://img.shields.io/npm/dm/vue-windows.svg?style=flat-square)](https://npmjs.com/package/vue-windows) [![Build Status](https://img.shields.io/circleci/project/egoist/vue-windows/master.svg?style=flat-square)](https://circleci.com/gh/egoist/vue-windows)
 
-It's inspired by the [socket.io](http://socket.io/) homepage, weighing only 2kb.
+It's inspired by the [socket.io](http://socket.io/) homepage, only 1kb.
 
 ## Install
 
@@ -16,23 +16,24 @@ $ npm install --save vue-windows
     <editor-window title="my window">
       editor window body
     </editor-window>
-    <browser-window url="http://example.com">
+    <browser-window title="http://example.com">
       browser window body
     </browser-window>
   </div>
 </template>
 
 <script>
-  import {EditorWindow, BrowserWindow} from 'vue-windows'
+import {EditorWindow, BrowserWindow} from 'vue-windows'
 
-  export default {
-    components: {
-      EditorWindow,
-      BrowserWindow
-    }
+export default {
+  components: {
+    EditorWindow,
+    BrowserWindow
   }
+}
 </script>
 
+<!-- Don't forget the CSS! -->
 <style src="vue-windows/dist/vue-windows.css"></style>
 ```
 
@@ -42,44 +43,33 @@ $ npm install --save vue-windows
 
 #### title
 
-Component: `EditorWindow`<br>
-Type: `string`<br>
-Required: `true`
-
-#### url
-
-Component: `BrowserWindow`<br>
-Type: `string`<br>
-Required: `true`
+- Type: `string`
+- Required: `true`
 
 #### shadow
 
-Component: `All`<br>
-Type: `boolean`<br>
-Default: `false`
+- Type: `boolean`
+- Default: `false`
 
 Whether to show window shadow.
 
 #### theme
 
-Component: `All`<br>
-Type: `string`<br>
-Default: `default`<br>
-Available: `default` `dark`
+- Type: `string`
+- Default: `default`
+- Available: `default`, `dark`
 
 #### width
 
-Component: `All`<br>
-Type: `number`|`string`<br>
-Default: `500`
+- Type: `number`, `string`
+- Default: `500`
 
 Number values are resolved into lengths in `px` while string values are used directly.
 
 #### height
 
-Component: `All`<br>
-Type: `number`|`string`<br>
-Default: `340`
+- Type: `number`, `string`
+- Default: `340`
 
 Number values are resolved into lengths in `px` while string values are used directly.
 

@@ -45,16 +45,19 @@
         :width="realWidth"
         :height="height"
         :theme="theme"
-        :shadow="shadow">
+        :shadow="shadow"
+        :style="`margin-right:20px;`"
+        id="foo1">
         <pre><code v-html="code"></code></pre>
       </editor-window>
 
       <browser-window
-        url="https://github.com/egoist/vue-windows"
+        title="https://github.com/egoist/vue-windows"
         :width="realWidth"
         :height="height"
         :theme="theme"
-        :shadow="shadow">
+        :shadow="shadow"
+        id="foo2">
         <div class="content">
           <h2>
             Such Window, Very Lovely!

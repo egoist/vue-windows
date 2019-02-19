@@ -2,34 +2,29 @@ import assign from 'nano-assign'
 import styles from './style.module.css'
 import Header from './Header/index'
 
-const sharedProps = {
-  browser: Boolean,
-  height: [Number, String],
-  width: [Number, String],
-  theme: {
-    type: String,
-    validator(v) {
-      return ['default', 'dark'].indexOf(v) > -1
-    }
-  },
-  shadow: {
-    type: Boolean,
-    default: false
-  }
-}
-
 const EditorWindow = {
-  functional: true,
   name: 'editor-window',
-  props: assign({
+  props: {
     title: {
       required: true,
       type: String
+    },
+    browser: Boolean,
+    height: [Number, String],
+    width: [Number, String],
+    theme: {
+      type: String,
+      validator(v) {
+        return ['default', 'dark'].indexOf(v) > -1
+      }
+    },
+    shadow: {
+      type: Boolean,
+      default: false
     }
-  }, sharedProps),
-  render(h, ctx) {
-    const children = ctx.children
-    const {browser, title, height, width, theme, shadow} = ctx.props
+  },
+  render(h) {
+    const {browser, title, height, width, theme, shadow} = this.$props
 
     const className = [
       styles.window,
@@ -42,45 +37,37 @@ const EditorWindow = {
       width: Boolean(width) && (typeof width === 'number' ? `${width}px` : width)
     }
 
-    return (
-      <div class={className} style={style}>
-        <Header title={title} isURL={browser} theme={theme} />
-        <div class={styles.body}>
-          {children}
-        </div>
-      </div>
-    )
+    return h('div', {
+      class: className,
+      style
+    }, [
+      h(Header, {
+        props: {
+          title,
+          isURL: browser,
+          theme
+        }
+      }),
+      h('div', {
+        class: styles.body
+      }, this.$slots.default)
+    ])
   }
 }
 
 const BrowserWindow = {
-  functional: true,
   name: 'browser-window',
-  props: assign({
-    url: {
-      required: true,
-      type: String
-    }
-  }, sharedProps),
-  render(h, ctx) {
-    let {url, height, width, theme, shadow} = ctx.props
-    const children = ctx.children
+  props: EditorWindow.props,
+  render(h) {
+    const props = assign({ browser: true }, this.$props)
 
-    if (url.substr(0, 8) === 'https://') {
-      url = `<span class="${[styles.safe, theme && styles[theme]].join(' ')}">https</span>${url.substr(5)}`
+    if (props.title.substr(0, 8) === 'https://') {
+      props.title = `<span class="${[styles.safe, props.theme && styles[props.theme]].join(' ')}">https</span>${props.title.substr(5)}`
     }
 
-    return (
-      <EditorWindow
-        title={url}
-        browser={true}
-        height={height}
-        width={width}
-        theme={theme}
-        shadow={shadow}>
-        {children}
-      </EditorWindow>
-    )
+    return h(EditorWindow, {
+      props
+    }, this.$slots.default)
   }
 }
 
