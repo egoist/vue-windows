@@ -62,7 +62,7 @@ Whether to show window shadow.
 #### width
 
 - Type: `number`, `string`
-- Default: `500`
+- Default: `100%`
 
 Number values are resolved into lengths in `px` while string values are used directly.
 
